@@ -1,27 +1,24 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include "contexts/executioncontext.h"
+#include "modules/datadrivenlogic/contexts/executioncontext.h"
 #include "core/object/ref_counted.h"
 
-class Action : public RefCounted
+class Action : public Resource
 {
-    GDCLASS(Action, RefCounted);
+    GDCLASS(Action, Resource);
 
 public:
     Action();
 
-    void execute();
-    void revert();
+    void execute(Ref<ExecutionContext> context);
+    void revert(Ref<ExecutionContext> context);
 
 protected:
 	static void _bind_methods();
 
-    virtual void execute_internal() {};
-    virtual void revert_internal() {};
-
-private:
-    ExecutionContext context;
+    virtual void execute_internal(Ref<ExecutionContext> context) {};
+    virtual void revert_internal(Ref<ExecutionContext> context) {};
 };
 
 #endif // ACTION_H
