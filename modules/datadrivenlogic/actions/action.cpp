@@ -2,20 +2,20 @@
 
 void Action::_bind_methods()
 {
-    ClassDB::bind_method(D_METHOD("execute"), &Action::execute);
-    ClassDB::bind_method(D_METHOD("revert"), &Action::revert);
+    ClassDB::bind_method(D_METHOD("execute", "context"), &Action::execute);
+    ClassDB::bind_method(D_METHOD("revert", "context"), &Action::revert);
 }
 
 Action::Action()
 {
 }
 
-void Action::execute()
+void Action::execute(Ref<ExecutionContext> context)
 {
-    execute_internal();
+    execute_internal(context);
 }
 
-void Action::revert()
+void Action::revert(Ref<ExecutionContext> context)
 {
-    revert_internal();
+    revert_internal(context);
 }
