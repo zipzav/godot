@@ -1,6 +1,7 @@
 #include "register_types.h"
 
 #include "actions/action.h"
+#include "conditions/condition.h"
 #include "contexts/executioncontext.h"
 
 #include "core/object/class_db.h"
@@ -10,8 +11,9 @@ void initialize_datadrivenlogic_module(ModuleInitializationLevel p_level) {
 	{
 		return;
 	}
-	ClassDB::register_class<ExecutionContext>();
-	ClassDB::register_class<Action>();
+	GDREGISTER_CLASS(ExecutionContext)
+	GDREGISTER_CLASS(Action)
+	GDREGISTER_CLASS(Condition)
 }
 
 void uninitialize_datadrivenlogic_module(ModuleInitializationLevel p_level) {

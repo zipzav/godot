@@ -14,11 +14,15 @@ public:
     void execute(Ref<ExecutionContext> context);
     void revert(Ref<ExecutionContext> context);
 
+    virtual bool _is_revertible();
+    GDVIRTUAL0RC(bool, _is_revertible);
+
+
 protected:
 	static void _bind_methods();
 
-    virtual void execute_internal(Ref<ExecutionContext> context) {};
-    virtual void revert_internal(Ref<ExecutionContext> context) {};
+    GDVIRTUAL1(_execute_internal, Ref<ExecutionContext>);
+    GDVIRTUAL1(_revert_internal, Ref<ExecutionContext>);
 };
 
 #endif // ACTION_H

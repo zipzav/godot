@@ -418,15 +418,11 @@ def main():
     push_nupkgs_local = os.path.abspath(args.push_nupkgs_local) if args.push_nupkgs_local else None
 
     msbuild_tool = find_any_msbuild_tool(args.mono_prefix)
-    
-    input("Please enter something: ")
-    
+
     if msbuild_tool is None:
         print("Unable to find MSBuild")
         sys.exit(1)
 
-    input("Please enter something2: ")
-    
     exit_code = build_all(
         msbuild_tool,
         module_dir,
@@ -438,7 +434,6 @@ def main():
         args.no_deprecated,
         args.werror,
     )
-    input("Please enter something3: ")
     sys.exit(exit_code)
 
 
