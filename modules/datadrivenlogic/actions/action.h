@@ -23,6 +23,7 @@ protected:
 
     GDVIRTUAL1(_execute_internal, Ref<ExecutionContext>);
     GDVIRTUAL1(_revert_internal, Ref<ExecutionContext>);
+
     virtual void execute_internal(Ref<ExecutionContext> context) {};
     virtual void revert_internal(Ref<ExecutionContext> context) {};
 };
