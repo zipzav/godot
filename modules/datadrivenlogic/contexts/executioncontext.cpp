@@ -14,7 +14,7 @@ ExecutionContext::ExecutionContext()
 
 Node* ExecutionContext::get_node(int index)
 {
-    if(nodes.size() >= index)
+    if(nodes.size() <= index)
         return nullptr;
 
    return nodes[index]; 
